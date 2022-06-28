@@ -36,7 +36,7 @@ def create(request):
     article = '''
         <input type = "text">
     '''
-    return HttpResponse('Create')
+    return HttpResponse(HTMLTemplate(article))
 
 def read(request, id):
     global topics
