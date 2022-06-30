@@ -44,6 +44,10 @@ def create(request):
             </form>
         '''
         return HttpResponse(HTMLTemplate(article))
+    elif request.method == 'POST':
+        title = request.POST['title']
+        body = request.POST['body']
+        return HttpResponse(request.POST['title'])
 
 def read(request, id):
     global topics
