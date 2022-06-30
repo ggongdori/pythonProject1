@@ -35,14 +35,15 @@ def index(request):
 
 @csrf_exempt
 def create(request):
-    article = '''
-        <form action = "/create/" method = "post">
-            <p><input type = "text" name = "title" placeholder = "title"></p>
-            <p><textarea name = "body" placeholder = "body"></textarea></p>
-            <p><input type = "submit"></p>
-        </form>
-    '''
-    return HttpResponse(HTMLTemplate(article))
+    if request.method == 'GET':
+        article = '''
+            <form action = "/create/" method = "post">
+                <p><input type = "text" name = "title" placeholder = "title"></p>
+                <p><textarea name = "body" placeholder = "body"></textarea></p>
+                <p><input type = "submit"></p>
+            </form>
+        '''
+        return HttpResponse(HTMLTemplate(article))
 
 def read(request, id):
     global topics
