@@ -50,6 +50,7 @@ def create(request):
         title = request.POST['title']
         body = request.POST['body']
         newTopic = {"id": nextId, "title": title, "body": body}
+        nextId += 1
         topics.append(newTopic)
         return HttpResponse(HTMLTemplate('AAA'))
 
