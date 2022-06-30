@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import redirect
 # Create your views here.
 nextId = 4
 topics = [
@@ -50,9 +51,10 @@ def create(request):
         title = request.POST['title']
         body = request.POST['body']
         newTopic = {"id": nextId, "title": title, "body": body}
-        nextId += 1
+        url = '/read/' + nextId
+        nextId = nextId +  1
         topics.append(newTopic)
-        return HttpResponse(HTMLTemplate('AAA'))
+        return redirect(url)
 
 def read(request, id):
     global topics
