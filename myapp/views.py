@@ -33,6 +33,7 @@ def index(request):
     '''
     return HttpResponse(HTMLTemplate(article))
 
+@csrf_exempt
 def create(request):
     article = '''
         <form action = "/create/" method = "post">
